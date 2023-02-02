@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Login from "./login"
+import Login from "./Login"
 
 function App() {
-  const [data, setData] = useState([])
 
   return (
     <div>
