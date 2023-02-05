@@ -35,3 +35,16 @@ export default App;
 
 //when logged out, sets currentuser to [], history.push("/login")
 //delete posts only in self posts page
+
+/* 
+Need to work on:
+CreatePost
+CommentCards
+self Post page
+
+
+Already finised: 
+PostCards
+AddUser
+
+*/
