@@ -1,10 +1,12 @@
-import * as React from 'react';
+// import * as React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Route, Switch } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+// import FormControlLabel from '@mui/material/FormControlLabel';
+// import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -29,14 +31,97 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
-  const handleSubmit = (event) => {
+  const [error, setError] = useState(false)
+  const [userData, setUserData] = useState([]) //all users
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const [currentUser, setCurrentUser] = useState([]) //user logged in
+
+  useEffect(() => {
+    fetch("http://localhost:9292/login")
+      .then(r => r.json())
+      .then(d => setUserData(d))
+  }, [])
+
+  function handleUser(e) {
+    setUsername(e.target.value)
+  }
+  function handlePassword(e) {
+    setPassword(e.target.value)
+  }
+
+
+  function handleSubmit(event) {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+
+    const userFilter = userData.filter((i) => {
+      const users = i.username == username && i.password == password
+      return users
+    })
+
+    if (userFilter == false) {
+      setError(true)
+    } else {
+      setCurrentUser(userFilter)
+      // <Route exact path="/home" />
+      //should change routes to home 
+      setError(false)
+    }
   };
+
+  const erroring = <div>
+    <TextField
+      margin="normal"
+      required
+      fullWidth
+      error
+      id="outlined-error"
+      // label="Error"
+      label="Username"
+      defaultValue="username"
+      autoFocus
+      onChange={handleUser}
+    />
+    <TextField
+      margin="normal"
+      required
+      fullWidth
+      error
+      id="outlined-error-helper-text"
+      // label="Error"
+      label="Password"
+      defaultValue="password"
+      type="password"
+      helperText="Incorrect entry."
+      autoFocus
+      onChange={handlePassword}
+    />
+  </div>
+
+  const nonError = <div>
+    <TextField
+      margin="normal"
+      required
+      fullWidth
+      id="username"
+      label="Username"
+      name="username"
+      autoComplete="username"
+      autoFocus
+      onChange={handleUser}
+    />
+    <TextField
+      margin="normal"
+      required
+      fullWidth
+      name="password"
+      label="Password"
+      type="password"
+      id="password"
+      autoComplete="current-password"
+      onChange={handlePassword}
+    />
+  </div>
 
   return (
     <ThemeProvider theme={theme}>
@@ -57,26 +142,7 @@ export default function SignIn() {
             Sign in
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="username"
-              label="Username"
-              name="username"
-              autoComplete="username"
-              autoFocus
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
+            {error ? erroring : nonError}
             <Button
               type="submit"
               fullWidth
@@ -88,7 +154,7 @@ export default function SignIn() {
             <Grid item>
               <Link href="#" variant="body2">
                 {"Don't have an account? Sign Up"}
-                {/* add route to login/new-user */}
+                {/* add route to login/new-userFilter */}
               </Link>
             </Grid>
           </Box>
@@ -98,3 +164,8 @@ export default function SignIn() {
     </ThemeProvider>
   );
 }
+
+//TODO
+
+//change routes to home when logged in
+//change routes to login-new-user when "dont have account" clicked
