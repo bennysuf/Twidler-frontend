@@ -34,10 +34,11 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignUp({setCurrentUser}) {
+export default function SignUp({ setCurrentUser, userData }) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState(false)
+    const [userError, setUserError] = useState(false)
 
     const history = useHistory()
 
@@ -52,22 +53,32 @@ export default function SignUp({setCurrentUser}) {
 
         event.preventDefault();
 
+        const userFilter = userData.filter((i) => {
+            return i.username === username
+        })
 
 
-        if (userFilter == false) {
+        if (userFilter == false === false) { 
             setCurrentUser([])
             setError(true)
-          } else {
+            setUserError(true)
+        } else if (password.length === 0) {
+            setCurrentUser([])
+            setError(true)
+            setUserError(false)
+        } else {
             setCurrentUser(userFilter)
-            history.push("/home")
+            // history.push("/home")
             //post
             setError(false)
-          }
+        }
 
 
     };
 
-    const erroring = <div>
+   
+
+    const usernameError = <div>
         <TextField
             margin="normal"
             required
@@ -76,7 +87,8 @@ export default function SignUp({setCurrentUser}) {
             id="outlined-error"
             // label="Error"
             label="Username"
-            defaultValue="username"
+            helperText={userError?"Username taken.":""} //ternary for password or user or both
+            defaultValue={username}
             autoFocus
             onChange={handleUser}
         />
@@ -88,13 +100,42 @@ export default function SignUp({setCurrentUser}) {
             id="outlined-error-helper-text"
             // label="Error"
             label="Password"
-            defaultValue="password"
+            defaultValue={password}
             type="password"
-            helperText="Incorrect entry."
+            helperText={userError?"Incorrect entry.": "Please put in password"}
             autoFocus
             onChange={handlePassword}
         />
     </div>
+
+    // const passwordError = <div>
+    //     <TextField
+    //         margin="normal"
+    //         required
+    //         fullWidth
+    //         error
+    //         id="outlined-error"
+    //         // label="Error"
+    //         label="Username"
+    //         defaultValue={username}
+    //         autoFocus
+    //         onChange={handleUser}
+    //     />
+    //     <TextField
+    //         margin="normal"
+    //         required
+    //         fullWidth
+    //         error
+    //         id="outlined-error-helper-text"
+    //         // label="Error"
+    //         label="Password"
+    //         defaultValue={password}
+    //         type="password"
+    //         helperText="Please put in password"
+    //         autoFocus
+    //         onChange={handlePassword}
+    //     />
+    // </div>
 
     const nonError = <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
@@ -143,7 +184,7 @@ export default function SignUp({setCurrentUser}) {
                         Sign up
                     </Typography>
                     <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-                        {error ? erroring : nonError}
+                        {error? usernameError : nonError}
                         <Button
                             type="submit"
                             fullWidth
