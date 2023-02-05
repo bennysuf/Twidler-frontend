@@ -1,8 +1,3 @@
-//fetch post
-//when added, should log person in? history.push
-//user input bar
-//check to see if user exists, if so error message
-
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
@@ -58,7 +53,7 @@ export default function SignUp({ setCurrentUser, userData }) {
         })
 
 
-        if (userFilter == false === false) { 
+        if (userFilter == false === false) {
             setCurrentUser([])
             setError(true)
             setUserError(true)
@@ -68,15 +63,25 @@ export default function SignUp({ setCurrentUser, userData }) {
             setUserError(false)
         } else {
             setCurrentUser(userFilter)
-            // history.push("/home")
-            //post
+            history.push("/home")
+            fetch("http://localhost:9292/login/new-user", {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(
+                    {
+                        username: username,
+                        password: password
+                    }
+                ),
+            })
+
             setError(false)
         }
 
 
     };
 
-   
+
 
     const usernameError = <div>
         <TextField
@@ -87,7 +92,7 @@ export default function SignUp({ setCurrentUser, userData }) {
             id="outlined-error"
             // label="Error"
             label="Username"
-            helperText={userError?"Username taken.":""} //ternary for password or user or both
+            helperText={userError ? "Username taken." : ""} //ternary for password or user or both
             defaultValue={username}
             autoFocus
             onChange={handleUser}
@@ -102,40 +107,11 @@ export default function SignUp({ setCurrentUser, userData }) {
             label="Password"
             defaultValue={password}
             type="password"
-            helperText={userError?"Incorrect entry.": "Please put in password"}
+            helperText={userError ? "Incorrect entry." : "Please put in password"}
             autoFocus
             onChange={handlePassword}
         />
     </div>
-
-    // const passwordError = <div>
-    //     <TextField
-    //         margin="normal"
-    //         required
-    //         fullWidth
-    //         error
-    //         id="outlined-error"
-    //         // label="Error"
-    //         label="Username"
-    //         defaultValue={username}
-    //         autoFocus
-    //         onChange={handleUser}
-    //     />
-    //     <TextField
-    //         margin="normal"
-    //         required
-    //         fullWidth
-    //         error
-    //         id="outlined-error-helper-text"
-    //         // label="Error"
-    //         label="Password"
-    //         defaultValue={password}
-    //         type="password"
-    //         helperText="Please put in password"
-    //         autoFocus
-    //         onChange={handlePassword}
-    //     />
-    // </div>
 
     const nonError = <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
@@ -184,7 +160,7 @@ export default function SignUp({ setCurrentUser, userData }) {
                         Sign up
                     </Typography>
                     <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-                        {error? usernameError : nonError}
+                        {error ? usernameError : nonError}
                         <Button
                             type="submit"
                             fullWidth
