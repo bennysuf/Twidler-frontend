@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import { Route, NavLink } from "react-router-dom"
+import { Route, useHistory } from "react-router-dom"
 import PostCards from "./PostCards"
 import CreatePost from "./CreatePost"
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
+
 
 export default function Home({ currentUser }) {
     const [posts, setPosts] = useState([])
     const [reload, setReload] = useState("")
+ 
+    const history = useHistory()
 
     useEffect(() => {
         fetch("http://localhost:9292/home")
@@ -13,24 +18,25 @@ export default function Home({ currentUser }) {
             .then(d => setPosts(d))
     }, [reload])
 
+    function handleCLick(){
+        history.push("/home/add-post")
+    }
+
 
     const cards = posts.map(post => <PostCards key={post.id} post={post} />)
 
     return (
         <div>
-            <NavLink
-                style={{ marginRight: "10px" }}
-                to="/home/add-post">
-                New post
-            </NavLink>
-            <Route exact path="/home/add-post">
-                {/* created nested route */}
-                <CreatePost />
-            </Route>
-            {/* <h3>hello {currentUser}</h3> cant render currentUser, reloads and becomes empty array*/}
-            <ul>
+            <h1 >Home page</h1>
+            <Stack direction="row" spacing={1} onClick={handleCLick}>
+                <Chip label="New post" color="primary" />
+            </Stack>
+            <br />
+            <Route path="/home/add-post" component={CreatePost} />
+            <ul> 
                 {cards}
             </ul>
+            {/* CSS to keep the cards from dropping down */}
         </div>
     )
 }
