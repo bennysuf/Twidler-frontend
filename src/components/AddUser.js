@@ -60,8 +60,6 @@ export default function SignUp({ setCurrentUser, userData, userUpdate }) {
             setError(true)
             setUserError(false)
         } else {
-            // setCurrentUser(userFilter)
-            // userUpdate(userFilter)
             history.push("/home")
             fetch("http://localhost:9292/login/new-user", {
                 method: 'POST',
@@ -73,8 +71,8 @@ export default function SignUp({ setCurrentUser, userData, userUpdate }) {
                     }
                 ),
             })
-            .then(r => r.json())
-            .then(d =>  userUpdate(d)) //d is data i need 
+                .then(r => r.json())
+                .then(d => userUpdate(d))
 
             setError(false)
         }
