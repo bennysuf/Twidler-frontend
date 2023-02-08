@@ -27,7 +27,7 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignIn({setCurrentUser, userData}) {
+export default function SignIn({setCurrentUser, userData, userUpdate}) {
   const [error, setError] = useState(false)
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
@@ -41,6 +41,7 @@ export default function SignIn({setCurrentUser, userData}) {
     setPassword(e.target.value)
   }
 
+  
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -54,7 +55,8 @@ export default function SignIn({setCurrentUser, userData}) {
       setCurrentUser([])
       setError(true)
     } else {
-      setCurrentUser(userFilter)
+      // setCurrentUser(userFilter)
+      userUpdate(userFilter[0])
       history.push("/home")
       setError(false)
     }
