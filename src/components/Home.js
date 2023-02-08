@@ -8,7 +8,7 @@ import Stack from '@mui/material/Stack';
 
 export default function Home({ currentUser }) {
     const [posts, setPosts] = useState([])
-    // const [reload, setReload] = useState("")
+    const [reload, setReload] = useState("")
 
     const history = useHistory()
 
@@ -16,7 +16,7 @@ export default function Home({ currentUser }) {
         fetch("http://localhost:9292/home")
             .then(r => r.json())
             .then(d => setPosts(d))
-    }, [])
+    }, [reload])
 
     function handleCLick() {
         history.push("/home/add-post")
@@ -33,7 +33,9 @@ export default function Home({ currentUser }) {
                     <Chip label="New post" color="primary" />
                 </Stack>
                 <br />
-                <Route path="/home/add-post" component={CreatePost} />
+                <Route path="/home/add-post">
+                    <CreatePost currentUser={currentUser} setReload={setReload}/>
+                </Route>
             </div>
             <ul>
                 {cards}
