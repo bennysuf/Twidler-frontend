@@ -27,7 +27,7 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignUp({ setCurrentUser, userData }) {
+export default function SignUp({ setCurrentUser, userData, userUpdate }) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState(false)
@@ -60,7 +60,8 @@ export default function SignUp({ setCurrentUser, userData }) {
             setError(true)
             setUserError(false)
         } else {
-            setCurrentUser(userFilter)
+            // setCurrentUser(userFilter)
+            // userUpdate(userFilter)
             history.push("/home")
             fetch("http://localhost:9292/login/new-user", {
                 method: 'POST',
@@ -72,6 +73,8 @@ export default function SignUp({ setCurrentUser, userData }) {
                     }
                 ),
             })
+            .then(r => r.json())
+            .then(d =>  userUpdate(d)) //d is data i need 
 
             setError(false)
         }
