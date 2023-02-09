@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 export default function NavBar() {
     return (
-        <div>
+        <div style={{textAlign: "center"}}>
             <NavLink
                 style={{ marginRight: "10px" }}
                 to="/home">
