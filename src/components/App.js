@@ -3,11 +3,13 @@ import { Route, Switch } from "react-router-dom";
 import Login from "./Login"
 import Home from "./Home"
 import AddUser from "./AddUser";
+import NavBar from "./NavBar";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({ username: "Loading.." }) //user logged in
   const [userData, setUserData] = useState([]) //all users
-
+  
+// console.log(currentUser)
 
   useEffect(() => {
     fetch("http://localhost:9292/login")
@@ -38,6 +40,7 @@ function App() {
 
   return (
     <div>
+      <NavBar />
       <Switch>
         <Route exact path="/login">
           <Login setCurrentUser={setCurrentUser} userData={userData} userUpdate={userUpdate} />
@@ -59,6 +62,8 @@ export default App;
 
 //when logged out, sets currentUser to [], history.push("/login"), delete user from CurrentUser
 //delete posts only in self posts page
+
+// current user should update after login and log out 
 
 /* 
 Need to work on:
