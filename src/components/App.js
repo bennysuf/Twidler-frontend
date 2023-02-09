@@ -8,9 +8,18 @@ import UsersPosts from "./UsersPosts";
 function App() {
   const [currentUser, setCurrentUser] = useState({ username: "Loading.." }) //user logged in
   const [userData, setUserData] = useState([]) //all users
+  const [reload, setReload] = useState("")
 
   const history = useHistory()
 
+  useEffect(() => { // pulls current user and adds it to state
+    fetch("http://localhost:9292/current-user")
+      .then(r => r.json())
+      .then(d => {
+        setCurrentUser(d[0])
+      })
+  }, [reload])
+  
   useEffect(() => { // pulls all users 
     fetch("http://localhost:9292/login")
       .then(r => r.json())
@@ -28,15 +37,9 @@ function App() {
       ),
     })
       .then(r => r.json())
+      .then(d => setReload(d))
   }
 
-  useEffect(() => { // pulls current user and adds it to state
-    fetch("http://localhost:9292/current-user")
-      .then(r => r.json())
-      .then(d => {
-        setCurrentUser(d[0])
-      })
-  }, [])
 
   function handleLogout() {
     console.log("delete")
@@ -75,12 +78,9 @@ export default App;
 
 //delete posts only in self posts page
 
-// current user should update after login and log out 
-
 /* 
 TODO:
 move send button down
-reload current user after sign in page loads 
 edit and delete post button
 
 */
