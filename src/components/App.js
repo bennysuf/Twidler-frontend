@@ -4,6 +4,7 @@ import Login from "./Login"
 import Home from "./Home"
 import AddUser from "./AddUser";
 import NavBar from "./NavBar";
+import UsersPosts from "./UsersPosts";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({ username: "Loading.." }) //user logged in
@@ -50,6 +51,9 @@ function App() {
         </Route>
         <Route path="/home">
           <Home currentUser={currentUser} />
+        </Route>
+        <Route path="/profile">
+          <UsersPosts currentUser={currentUser}/>
         </Route>
       </Switch>
     </div>
