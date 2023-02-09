@@ -4,15 +4,17 @@ import PostCards from "./PostCards"
 import CreatePost from "./CreatePost"
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import NavBar from "./NavBar";
 
 
-export default function Home({ currentUser }) {
+export default function Home({ currentUser, handleLogout }) {
     const [posts, setPosts] = useState([])
     const [reload, setReload] = useState("")
 
     const history = useHistory()
 
-    useEffect(() => {
+    useEffect(() => { // pulls all posts
         fetch("http://localhost:9292/home")
             .then(r => r.json())
             .then(d => setPosts(d))
@@ -26,6 +28,8 @@ export default function Home({ currentUser }) {
 
     return (
         <>
+            <Button variant="contained" onClick={handleLogout}>Logout</Button>
+            <NavBar />
             <h1 style={{ textAlign: "center" }} >Welcome {currentUser.username}</h1>
             <div style={{ textAlign: "center", marginLeft: "100px", position: "absolute" }}>
                 <Stack direction="row" spacing={1} onClick={handleCLick}>
