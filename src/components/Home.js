@@ -22,7 +22,6 @@ export default function Home({ currentUser }) {
         history.push("/home/add-post")
     }
 
-
     const cards = posts.map(post => <PostCards key={post.id} post={post} />)
 
     return (
@@ -34,7 +33,7 @@ export default function Home({ currentUser }) {
                 </Stack>
                 <br />
                 <Route path="/home/add-post">
-                    <CreatePost currentUser={currentUser} setReload={setReload}/>
+                    <CreatePost currentUser={currentUser} setReload={setReload} />
                 </Route>
             </div>
             <ul>
