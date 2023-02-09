@@ -16,7 +16,6 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
 
 
 export default function AutoGridNoWrap({ post }) {
-  // const [user, setUser] = useState([])
   const [initial, setInitial] = useState([])
   const { body, created_at, user_id } = post
 
@@ -25,7 +24,6 @@ export default function AutoGridNoWrap({ post }) {
     fetch(`http://localhost:9292/user/${user_id}`)
       .then(r => r.json())
       .then(d => {
-        // setUser(d)
         setInitial(d.username.charAt(0))
       })
   }, [])
@@ -55,3 +53,4 @@ export default function AutoGridNoWrap({ post }) {
 }
 
 //no edit button, delete only from self post page 
+// do if statement user == posts.user which returns true or false then use ternary to post edit or delete 
