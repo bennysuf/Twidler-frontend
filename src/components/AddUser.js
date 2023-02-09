@@ -51,15 +51,15 @@ export default function SignUp({ setCurrentUser, userData, userUpdate }) {
         })
 
 
-        if (userFilter == false === false) {
+        if (userFilter == false === false) { // checks if username exists
             setCurrentUser([])
             setError(true)
             setUserError(true)
-        } else if (password.length === 0) {
+        } else if (password.length === 0) { // checks if a password was put in
             setCurrentUser([])
             setError(true)
             setUserError(false)
-        } else {
+        } else { // creates user 
             history.push("/home")
             fetch("http://localhost:9292/login/new-user", {
                 method: 'POST',
@@ -89,7 +89,6 @@ export default function SignUp({ setCurrentUser, userData, userUpdate }) {
             fullWidth
             error
             id="outlined-error"
-            // label="Error"
             label="Username"
             helperText={userError ? "Username taken." : ""} //ternary for password or user or both
             defaultValue={username}
@@ -102,7 +101,6 @@ export default function SignUp({ setCurrentUser, userData, userUpdate }) {
             fullWidth
             error
             id="outlined-error-helper-text"
-            // label="Error"
             label="Password"
             defaultValue={password}
             type="password"
