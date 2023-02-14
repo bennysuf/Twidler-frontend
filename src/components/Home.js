@@ -25,7 +25,7 @@ import MenuItem from '@mui/material/MenuItem';
 
 
 export default function Home({ currentUser, handleLogout }) {
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState("Loading...")
     const [reload, setReload] = useState("")
 
     const history = useHistory()
@@ -45,14 +45,12 @@ export default function Home({ currentUser, handleLogout }) {
     useEffect(() => { // pulls all posts
         fetch("http://localhost:9292/home")
             .then(r => r.json())
-            .then(d => setPosts(d))
+            .then(d => setPosts(d.map(post => <PostCards key={post.id} post={post} />)))
     }, [reload])
 
     function handleCLick() { // ? is this the best way to change routes?
         history.push("/home/add-post")
     }
-
-    const cards = posts.map(post => <PostCards key={post.id} post={post} />)
 
     //!    
     return (
@@ -140,7 +138,7 @@ export default function Home({ currentUser, handleLogout }) {
                 </Container>
             </AppBar>
             <ul style={{ marginTop: "80px" }}>
-                {cards}
+                {posts}
             </ul>
             <Route path="/home/add-post">
                 <CreatePost currentUser={currentUser} setReload={setReload} />
