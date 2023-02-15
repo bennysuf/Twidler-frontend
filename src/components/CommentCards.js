@@ -1,1 +1,0 @@
-// to edit comments, if comment.user_id === currentUser.id then show edit button 
