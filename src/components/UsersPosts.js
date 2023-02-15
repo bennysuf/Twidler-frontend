@@ -1,45 +1,28 @@
 import React, { useState, useEffect } from 'react'
-import { Route } from 'react-router-dom'
 import PostCards from "./PostCards"
-import Button from '@mui/material/Button';
-import NavBar from "./NavBar";
-import { NavLink } from 'react-router-dom';
-import Edit from "./Edit"
 
-export default function UsersPosts({ currentUser, handleLogout }) {
+export default function UsersPosts({ currentUser, appBar }) {
     const [ownPosts, setOwnPosts] = useState([])
 
     useEffect(() => {
         console.log("currentUser", currentUser)
         fetch(`http://localhost:9292/posts/${currentUser.user_id}`)
             .then(r => r.json())
-            .then(d => setOwnPosts(d))
-    }, [])
+            .then(d => {
+                if (d[0] === undefined) {
+                    setOwnPosts(<h1 style={{textAlign: "center", font: "menu", fontSize: ""}}>Such emptiness</h1>)
+                } else {
+                    setOwnPosts(d.map(post => <PostCards key={post.id} post={post} />))
+                }
+            })
 
-    //TODO if ownPost is empty return "Such emptiness"
-    //? How to make an if statement in a variable?
-    //* Try map if post == null 
-    //* something where ownPosts == null?
-    //! map wont work, it will return string multiple times
-    //* ternary where if cards == false? 
-    const cards = ownPosts.map(post => <PostCards key={post.id} post={post} />)
+    }, [])
 
     return (
         <>
-            <div>
-                <Button variant="contained" onClick={handleLogout}>Logout</Button>
-                <NavBar />
-                <NavLink
-                    style={{ marginRight: "10px", font: "menu" }}
-                    to="/profile/edit-user">
-                    Edit Account
-                </NavLink>
-                <Route path="/profile/edit-user">
-                    <Edit />
-                </Route>
-            </div>
-            <ul>
-                {cards}
+                {appBar}
+            <ul style={{ marginTop: "80px" }}>
+                {ownPosts}
             </ul>
         </>
     )
