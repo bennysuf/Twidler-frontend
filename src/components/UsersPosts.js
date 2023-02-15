@@ -5,7 +5,6 @@ export default function UsersPosts({ currentUser, appBar }) {
     const [ownPosts, setOwnPosts] = useState([])
 
     useEffect(() => {
-        console.log("currentUser", currentUser)
         fetch(`http://localhost:9292/posts/${currentUser.user_id}`)
             .then(r => r.json())
             .then(d => {
