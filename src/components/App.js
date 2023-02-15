@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Route, Switch, useHistory, Link } from "react-router-dom";
 import Login from "./Login";
 import Home from "./Home";
+import Edit from "./Edit";
 import AddUser from "./AddUser";
 import CreatePost from "./CreatePost";
 import UsersPosts from "./UsersPosts";
@@ -131,7 +132,6 @@ function App() {
             </Link>
           </Tooltip>
         </Box>
-
         <Typography
           variant="h6"
           noWrap
@@ -147,7 +147,6 @@ function App() {
         >
           Welcome {currentUser.username}
         </Typography>
-
         <Box sx={{ flexGrow: 0 }}>
           <Tooltip title="Open settings">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -170,11 +169,10 @@ function App() {
             open={Boolean(anchorElUser)}
             onClose={handleCloseUserMenu}
           >
-
             <MenuItem onClick={handleLogout}>
               <Typography textAlign="center">Logout</Typography>
             </MenuItem>
-            <MenuItem >
+            <MenuItem onClick={() => history.push("/edit-user")} >
               <Typography textAlign="center">Edit Account</Typography>
             </MenuItem>
           </Menu>
@@ -199,7 +197,10 @@ function App() {
           <UsersPosts currentUser={currentUser} handleLogout={handleLogout} appBar={appBar} />
         </Route>
         <Route exact path="/add-post">
-          <CreatePost currentUser={currentUser} appBar={appBar}/>
+          <CreatePost currentUser={currentUser} appBar={appBar} />
+        </Route>
+        <Route path="/edit-user">
+          <Edit appBar={appBar} currentUser={currentUser}/>
         </Route>
       </Switch>
     </div>
@@ -213,7 +214,7 @@ TODO
 edit and delete post button
 
 TODO 
-COMPONENTS: Edit, CreatePost.
+COMPONENTS: Edit.
 
 
 ? how to get page to work if wrong entry in Login?
