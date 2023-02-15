@@ -41,7 +41,11 @@ function App() {
     fetch("http://localhost:9292/current-user")
       .then(r => r.json())
       .then(d => {
-        setCurrentUser(d[0])
+        if (d[0] === undefined) {
+          setCurrentUser({ username: "Loading.." })
+        } else {
+          setCurrentUser(d[0])
+        }
       })
   }, [reload])
 
@@ -71,7 +75,7 @@ function App() {
       method: "DELETE"
     })
       .then(r => r.json())
-      .then(d => {
+      .then(() => {
         history.push("/login")
         setCurrentUser({ username: "Loading.." })
       })
@@ -195,8 +199,8 @@ function App() {
           <UsersPosts currentUser={currentUser} handleLogout={handleLogout} appBar={appBar} />
         </Route>
         <Route exact path="/add-post">
-                <CreatePost currentUser={currentUser} setReload={setReload} />
-            </Route>
+          <CreatePost currentUser={currentUser} appBar={appBar}/>
+        </Route>
       </Switch>
     </div>
   );
@@ -206,10 +210,11 @@ export default App;
 
 /* 
 TODO
-move send button down 
-TODO
 edit and delete post button
 
 TODO 
-COMPONENTS: Edit, UsersPosts, CreatePost.
+COMPONENTS: Edit, CreatePost.
+
+
+? how to get page to work if wrong entry in Login?
 */
