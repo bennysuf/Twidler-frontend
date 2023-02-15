@@ -20,7 +20,7 @@ export default function AutoGridNoWrap({ post }) {
   const { body, created_at, user_id } = post
 
 
-  useEffect(() => {
+  useEffect(() => { // gets the user of the post
     fetch(`http://localhost:9292/user/${user_id}`)
       .then(r => r.json())
       .then(d => {
