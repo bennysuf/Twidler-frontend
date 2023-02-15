@@ -3,9 +3,8 @@ import { useHistory } from "react-router-dom";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
-import Stack from '@mui/material/Stack';
 
-export default function CreatePost({ currentUser, setReload }) {
+export default function CreatePost({ currentUser, appBar }) {
     const [newPost, setNewPost] = useState("")
     const history = useHistory()
 
@@ -14,7 +13,6 @@ export default function CreatePost({ currentUser, setReload }) {
     }
 
     function handleSubmit(e) {
-        setReload("reload")
 
         e.preventDefault();
 
@@ -29,34 +27,29 @@ export default function CreatePost({ currentUser, setReload }) {
             ),
         })
             .then(r => r.json())
-            .then(d => {
-                setReload("")
+            .then(() => {
                 history.push("/home")
                 setNewPost("")
             })
     }
 
     return (
-        <form style={{ textAlign: "center" }} onSubmit={handleSubmit}>
-            <TextField
-                id="outlined-multiline-static"
-                label="Multiline"
-                multiline
-                rows={3}
-                onChange={handleChange}
-            />
-            <Stack direction="row-reverse" spacing={1} >
-                <Button type='submit' variant="contained" endIcon={<SendIcon />} >
+        <>
+            {appBar}
+            <form style={{ textAlign: "center", margin: "200px" }} onSubmit={handleSubmit}>
+                <TextField
+                    id="outlined-multiline-static"
+                    label="New post"
+                    multiline
+                    rows={3}
+                    onChange={handleChange}
+                />
+                <br />
+                <Button type='submit' variant="contained" endIcon={<SendIcon />} style={{ margin: "10px" }}>
                     Send
                 </Button>
-            </Stack>
-        </form>
+            </form>
+        </>
     )
 }
 
-/*
-TODO
-
-move button down a drop
-
-*/
