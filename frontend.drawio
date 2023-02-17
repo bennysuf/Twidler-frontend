@@ -1,26 +1,56 @@
 <mxfile host="65bd71144e">
     <diagram id="cvKtXY9jxiZroYEO1BHj" name="Page-1">
-        <mxGraphModel dx="709" dy="887" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="2624" dy="1779" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="2" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="100" y="100" width="120" height="60" as="geometry"/>
+                <mxCell id="8" style="edgeStyle=none;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;" parent="1" source="2" target="3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="305" y="100" width="120" height="60" as="geometry"/>
+                <mxCell id="11" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" parent="1" source="2" target="10" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="4" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="550" y="100" width="120" height="60" as="geometry"/>
+                <mxCell id="21" style="edgeStyle=none;html=1;exitX=0.589;exitY=1.084;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="2" target="18" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="Login&lt;br&gt;Add new user" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                <mxCell id="2" value="App" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="-190" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" parent="1" source="3" target="4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Login" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#33FF33;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Add User" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#00FF00;" parent="1" vertex="1">
+                    <mxGeometry x="-90" y="190" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Login&lt;br&gt;Add new user" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
                     <mxGeometry x="110" y="420" width="170" height="170" as="geometry"/>
                 </mxCell>
-                <mxCell id="6" value="All posts&lt;br&gt;Add new post&lt;br&gt;add new comment&lt;br&gt;Delete comments&lt;br&gt;Edit comments" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                <mxCell id="6" value="All posts&lt;br&gt;Add new post&lt;br&gt;add new comment&lt;br&gt;Delete comments&lt;br&gt;Edit comments&lt;br&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
                     <mxGeometry x="320" y="420" width="170" height="170" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value="Users posts&lt;br&gt;delete posts&lt;br&gt;edit posts" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                <mxCell id="7" value="Users posts&lt;br&gt;delete posts&lt;br&gt;edit posts" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
                     <mxGeometry x="520" y="420" width="170" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" parent="1" source="10" target="12" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="10" target="14" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Home" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="225" y="30" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Post Cards" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#33FF33;" parent="1" vertex="1">
+                    <mxGeometry x="140" y="170" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Create Post&lt;br&gt;&lt;br&gt;move button down" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFFF66;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="170" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="*UsersPosts&lt;br&gt;&lt;br&gt;delete posts&lt;br&gt;edit posts" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FF3333;" parent="1" vertex="1">
+                    <mxGeometry x="390" y="30" width="120" height="60" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
