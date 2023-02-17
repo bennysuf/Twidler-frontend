@@ -200,7 +200,7 @@ function App() {
           <CreatePost currentUser={currentUser} appBar={appBar} />
         </Route>
         <Route path="/edit-user">
-          <Edit appBar={appBar} currentUser={currentUser}/>
+          <Edit appBar={appBar} currentUser={currentUser} userUpdate={userUpdate} handleLogout={handleLogout} />
         </Route>
       </Switch>
     </div>
