@@ -16,7 +16,7 @@ function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright © '}
-            <Link color="inherit" href="https://localhost:3000/">
+            <Link color="inherit" href="/login">
                 Twidler
             </Link>{' '}
             {new Date().getFullYear()}
@@ -49,8 +49,8 @@ export default function SignUp({ setCurrentUser, userData, userUpdate }) {
         const userFilter = userData.filter((i) => {
             return i.username === username
         })
-
-
+        
+        
         if (userFilter == false === false) { // checks if username exists
             setCurrentUser([])
             setError(true)
@@ -69,14 +69,15 @@ export default function SignUp({ setCurrentUser, userData, userUpdate }) {
                         username: username,
                         password: password
                     }
-                ),
-            })
+                    ),
+                })
                 .then(r => r.json())
                 .then(d => userUpdate(d))
-
-            setError(false)
-        }
-
+                
+                setError(false)
+            }
+            
+            
 
     };
 
