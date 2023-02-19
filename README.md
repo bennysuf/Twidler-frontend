@@ -40,7 +40,7 @@
     You also have the option to delete your account. 
 
 ```diff
-- **ONCE YOU CLICK 'DELETE ACCOUNT' YOU WILL NOT BE ABLE TO REVERSE IT**
+- ONCE YOU CLICK 'DELETE ACCOUNT' YOU WILL NOT BE ABLE TO REVERSE IT!
 ```
 <img>
 
