@@ -59,5 +59,3 @@ export default function Edit({ appBar, currentUser, userUpdate, handleLogout }) 
         </>
     )
 }
-
-//TODO fix post destroy in backend
