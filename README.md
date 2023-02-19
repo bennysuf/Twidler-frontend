@@ -20,7 +20,7 @@
 
 **MAKE SURE THE BACKEND SERVER IS RUNNING!**
 
-[Link to Backend](https://github.com/bennysuf/phase-3-sinatra-react-project)
+[Link to Backend](https://github.com/bennysuf/twidler-backend)
 
 
 
@@ -29,17 +29,17 @@
     if not then click on create an account. 
     Once you are signed in you will be taken to the Home page,
     where you will see the posts from all of the users.
-<img>
+<img> full photo
 
     To create a post yourself, click the 'new posts' button. 
     To view your posts, click on the 'portfolio' button. 
     To go back home, click the 'home' button.
     All on the top left side on the app bar.
-<img>
+<img> buttons
 
     To logout click on your Avatar on the top right side,
     it will give you the options to logout or edit your account 
-<img>
+<img> avatar clicked
 
     When editing your account, you can only change your username. 
     You also have the option to delete your account. 
@@ -47,7 +47,7 @@
 ```diff
 - ONCE YOU CLICK 'DELETE ACCOUNT' YOU WILL NOT BE ABLE TO REVERSE IT!
 ```
-<img>
+<img> edit page
 
 ## Key details:
     UI source: 
