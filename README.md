@@ -1,4 +1,4 @@
-# My Phase-3 Project - Twidler 
+# My Phase-3 Project - Twidler Frontend
 
 ## What my project is:
     Think unnamed social media platforms suck? too political? UI isn't very good?
