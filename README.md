@@ -1,4 +1,9 @@
+# My Phase-3 Project - Twidler 
+
 ## What my project is:
+    Think unnamed social media platforms suck? too political? UI isn't very good?
+    Let me introduce you to Twidler, a social media app that allows you to have fun
+    with your friends by posting your thoughts and seeing your friends. 
 
 ## How to start it up:
     Clone the repository and open it in your terminal. 
