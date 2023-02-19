@@ -14,7 +14,7 @@
     You will then be taken to the browser to start using the project.
 
     **MAKE SURE THE BACKEND SERVER IS RUNNING!**
-    
+
     [Link to Backend](https://github.com/bennysuf/phase-3-sinatra-react-project)
 
 
@@ -36,7 +36,10 @@
 
     When editing your account, you can only change your username. 
     You also have the option to delete your account. 
-    -**ONCE YOU CLICK 'DELETE ACCOUNT' YOU WILL NOT BE ABLE TO REVERSE IT**
+
+    ```diff
+    - **ONCE YOU CLICK 'DELETE ACCOUNT' YOU WILL NOT BE ABLE TO REVERSE IT**
+    ```
 <img>
 
 ## Key details:
