@@ -13,15 +13,17 @@
 
     You will then be taken to the browser to start using the project.
 
-    **MAKE SURE THE BACKEND SERVER IS RUNNING!**
+**MAKE SURE THE BACKEND SERVER IS RUNNING!**
 
-    [Link to Backend](https://github.com/bennysuf/phase-3-sinatra-react-project)
+[Link to Backend](https://github.com/bennysuf/phase-3-sinatra-react-project)
 
 
 
 ## How to use it:
-    If you already have an account then login using your login information, if not then click on create an account. 
-    Once you are signed in you will be taken to the Home page where you will see the posts from all of the users.
+    If you already have an account then login using your login information, 
+    if not then click on create an account. 
+    Once you are signed in you will be taken to the Home page,
+    where you will see the posts from all of the users.
 <img>
 
     To create a post yourself, click the 'new posts' button. 
@@ -37,9 +39,9 @@
     When editing your account, you can only change your username. 
     You also have the option to delete your account. 
 
-    ```diff
-    - **ONCE YOU CLICK 'DELETE ACCOUNT' YOU WILL NOT BE ABLE TO REVERSE IT**
-    ```
+```diff
+- **ONCE YOU CLICK 'DELETE ACCOUNT' YOU WILL NOT BE ABLE TO REVERSE IT**
+```
 <img>
 
 ## Key details:
