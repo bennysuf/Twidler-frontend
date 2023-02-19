@@ -3,13 +3,13 @@
 ## How to start it up:
     Clone the repository and open it in your terminal. 
     Run:
-    `$ npm install` or `$ npm i`
+`$ npm install` or `$ npm i`
 
     Once your dependencies are installed, run:
-    `$ npm run server`
+`$ npm run server`
 
     Then in a new terminal, run:
-    `$ npm start`
+`$ npm start`
 
     You will then be taken to the browser to start using the project.
 
