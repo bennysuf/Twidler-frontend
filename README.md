@@ -29,7 +29,7 @@
     where you will see the posts from all of the users.
 <img width="1425" alt="Screen Shot 2023-02-19 at 2 48 26 PM" src="https://user-images.githubusercontent.com/109253075/220732123-3649d280-48d6-4652-8e38-85b68e4b5d66.png">
 
-    To go back home, click the 'home' button.
+    To go to home, click the 'home' button.
     To view your posts, click on the 'portfolio' button. 
     To create a post yourself, click the 'new posts' button. 
     All on the top left side on the app bar.
