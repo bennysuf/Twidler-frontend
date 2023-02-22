@@ -51,6 +51,3 @@ export default function AutoGridNoWrap({ post }) {
     </Box>
   );
 }
-
-//no edit button, delete only from self post page 
-// do if statement user == posts.user which returns true or false then use ternary to post edit or delete 

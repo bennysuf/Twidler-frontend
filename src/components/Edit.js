@@ -50,7 +50,6 @@ export default function Edit({ appBar, currentUser, userUpdate, handleLogout }) 
                     </Button>
                 </form>
             </div>
-            {/* //TODO move button  */}
             <Button variant="contained" color="error" startIcon={<DeleteIcon />} style={{ textAlign: "center", marginBottom: "10px" }}
                 onClick={handleDelete}>
                 Delete Account

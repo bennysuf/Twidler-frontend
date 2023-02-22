@@ -9,7 +9,7 @@ export default function UsersPosts({ currentUser, appBar }) {
             .then(r => r.json())
             .then(d => {
                 if (d[0] === undefined) {
-                    setOwnPosts(<h1 style={{textAlign: "center", font: "menu", fontSize: ""}}>Such emptiness</h1>)
+                    setOwnPosts(<h1 style={{ textAlign: "center", font: "menu", fontSize: "" }}>Such emptiness</h1>)
                 } else {
                     setOwnPosts(d.map(post => <PostCards key={post.id} post={post} />))
                 }
@@ -19,7 +19,7 @@ export default function UsersPosts({ currentUser, appBar }) {
 
     return (
         <>
-                {appBar}
+            {appBar}
             <ul style={{ marginTop: "80px" }}>
                 {ownPosts}
             </ul>

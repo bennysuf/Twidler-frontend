@@ -102,7 +102,6 @@ function App() {
         >
           TWIDLER
         </Typography>
-        {/* //TODO change to center */}
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
           <Tooltip title="Home">
             <Link to="/home">
@@ -210,12 +209,5 @@ function App() {
 export default App;
 
 /* 
-TODO
-edit and delete post button
-
-TODO 
-COMPONENTS: Edit.
-
-
 ? how to get page to work if wrong entry in Login?
 */

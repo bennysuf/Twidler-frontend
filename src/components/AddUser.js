@@ -49,8 +49,8 @@ export default function SignUp({ setCurrentUser, userData, userUpdate }) {
         const userFilter = userData.filter((i) => {
             return i.username === username
         })
-        
-        
+
+
         if (userFilter == false === false) { // checks if username exists
             setCurrentUser([])
             setError(true)
@@ -69,15 +69,15 @@ export default function SignUp({ setCurrentUser, userData, userUpdate }) {
                         username: username,
                         password: password
                     }
-                    ),
-                })
+                ),
+            })
                 .then(r => r.json())
                 .then(d => userUpdate(d))
-                
-                setError(false)
-            }
-            
-            
+
+            setError(false)
+        }
+
+
 
     };
 
