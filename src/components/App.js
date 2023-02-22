@@ -77,7 +77,7 @@ function App() {
     })
       .then(r => r.json())
       .then(() => {
-        history.push("/login")
+        history.push("/")
         setCurrentUser({ username: "Loading.." })
       })
   }
@@ -135,7 +135,7 @@ function App() {
           variant="h6"
           noWrap
           sx={{
-            mr: 75,
+            mr: 67.5,
             display: { xs: 'none', md: 'flex' },
             fontFamily: 'monospace',
             fontWeight: 700,
