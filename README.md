@@ -11,7 +11,7 @@
     Run:
 `$ npm install` or `$ npm i`
 
-    Then in a new terminal, run:
+    Then to start the project, run:
 `$ npm start`
 
     You will then be taken to the browser to start using the project.
