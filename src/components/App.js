@@ -183,10 +183,10 @@ function App() {
   return (
     <div>
       <Switch>
-        <Route exact path="/login">
+        <Route exact path="/">
           <Login setCurrentUser={setCurrentUser} userData={userData} userUpdate={userUpdate} />
         </Route>
-        <Route exact path="/login/new-user">
+        <Route exact path="/new-user">
           <AddUser setCurrentUser={setCurrentUser} userData={userData} userUpdate={userUpdate} />
         </Route>
         <Route path="/home">

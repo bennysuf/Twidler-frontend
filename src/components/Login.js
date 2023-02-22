@@ -143,7 +143,7 @@ export default function SignIn({ setCurrentUser, userData, userUpdate }) {
               Sign In
             </Button>
             <Grid item>
-              <Link href="/login/new-user" variant="body2">
+              <Link href="/new-user" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
