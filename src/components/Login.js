@@ -51,7 +51,7 @@ export default function SignIn({ setCurrentUser, userData, userUpdate }) {
       return users
     })
 
-    if (userFilter === false) {
+    if (userFilter == false) {
       setCurrentUser([])
       setError(true)
     } else {
