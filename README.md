@@ -11,9 +11,6 @@
     Run:
 `$ npm install` or `$ npm i`
 
-    Once your dependencies are installed, run:
-`$ npm run server`
-
     Then in a new terminal, run:
 `$ npm start`
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -47,11 +47,11 @@ export default function SignIn({ setCurrentUser, userData, userUpdate }) {
     event.preventDefault();
 
     const userFilter = userData.filter((i) => {
-      const users = i.username == username && i.password == password
+      const users = i.username === username && i.password === password
       return users
     })
 
-    if (userFilter == false) {
+    if (userFilter === false) {
       setCurrentUser([])
       setError(true)
     } else {
