@@ -30,7 +30,7 @@
     if not then click on create an account. 
     Once you are signed in you will be taken to the Home page,
     where you will see the posts from all of the users.
-    <img width="1425" alt="Screen Shot 2023-02-19 at 2 48 26 PM" src="https://user-images.githubusercontent.com/109253075/220732123-3649d280-48d6-4652-8e38-85b68e4b5d66.png">
+<img width="1425" alt="Screen Shot 2023-02-19 at 2 48 26 PM" src="https://user-images.githubusercontent.com/109253075/220732123-3649d280-48d6-4652-8e38-85b68e4b5d66.png">
 
     To create a post yourself, click the 'new posts' button. 
     To view your posts, click on the 'portfolio' button. 
