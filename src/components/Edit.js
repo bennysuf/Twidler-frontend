@@ -15,7 +15,7 @@ export default function Edit({ appBar, currentUser, userUpdate, handleLogout }) 
 
         e.preventDefault()
 
-        fetch(`http://localhost:9292/edit-user/${currentUser.user_id}`, {
+        fetch(`http://localhost:9292/edit-user/${currentUser.id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(
@@ -31,7 +31,7 @@ export default function Edit({ appBar, currentUser, userUpdate, handleLogout }) 
 
 
     function handleDelete() {
-        fetch(`http://localhost:9292/edit-user/${currentUser.user_id}`, {
+        fetch(`http://localhost:9292/edit-user/${currentUser.id}`, {
             method: "DELETE"
         })
             .then(r => r.json())

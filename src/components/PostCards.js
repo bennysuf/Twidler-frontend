@@ -19,7 +19,6 @@ export default function AutoGridNoWrap({ post }) {
   const [initial, setInitial] = useState([])
   const { body, created_at, user_id } = post
 
-
   useEffect(() => { // gets the user of the post
     fetch(`http://localhost:9292/user/${user_id}`)
       .then(r => r.json())
@@ -30,7 +29,7 @@ export default function AutoGridNoWrap({ post }) {
 
 
   return (
-    <Box sx={{ flexGrow: 1, overflow: 'hidden', px: 3 }}>
+   <Box sx={{ flexGrow: 1, overflow: 'hidden', px: 3 }}>
       <StyledPaper
         sx={{
           my: 1,
@@ -44,7 +43,7 @@ export default function AutoGridNoWrap({ post }) {
           </Grid>
           <Grid item xs>
             <Typography>{body}</Typography>
-            <h5>{created_at.slice(0, 10)}, {created_at.slice(11, 19)}</h5>
+           <h5>{created_at.slice(0, 10)}, {created_at.slice(11, 19)}</h5>
           </Grid>
         </Grid>
       </StyledPaper>

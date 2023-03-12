@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 
-export default function CreatePost({ currentUser, appBar }) {
+export default function CreatePost({ currentUser, appBar, setPosts, posts }) {
     const [newPost, setNewPost] = useState("")
     const history = useHistory()
 
@@ -27,7 +27,8 @@ export default function CreatePost({ currentUser, appBar }) {
             ),
         })
             .then(r => r.json())
-            .then(() => {
+            .then((newPost) => {
+                setPosts([newPost, ...posts])
                 history.push("/home")
                 setNewPost("")
             })

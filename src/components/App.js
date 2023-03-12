@@ -6,6 +6,7 @@ import Edit from "./Edit";
 import AddUser from "./AddUser";
 import CreatePost from "./CreatePost";
 import UsersPosts from "./UsersPosts";
+// import PostCards from "./PostCards";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -25,6 +26,9 @@ function App() {
   const [currentUser, setCurrentUser] = useState({ username: "Loading.." }) //user logged in
   const [userData, setUserData] = useState([]) //all users
   const [reload, setReload] = useState("")
+  const [posts, setPosts] = useState([])
+  // console.log("app", posts)
+
 
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -42,10 +46,11 @@ function App() {
     fetch("http://localhost:9292/current-user")
       .then(r => r.json())
       .then(d => {
-        if (d[0] === undefined) {
+        console.log("user", d)
+        if (d === undefined) {
           setCurrentUser({ username: "Loading.." })
         } else {
-          setCurrentUser(d[0])
+          setCurrentUser(d)
         }
       })
   }, [reload])
@@ -69,6 +74,13 @@ function App() {
       .then(r => r.json())
       .then(d => setReload(d))
   }
+
+  useEffect(() => { // pulls all posts
+    fetch("http://localhost:9292/home")
+        .then(r => r.json())
+        // .then(d => setPosts(d.map(post => <PostCards key={post.id} post={post} />)))
+        .then(d => setPosts(d))
+}, [])
 
 
   function handleLogout() {
@@ -190,13 +202,14 @@ function App() {
           <AddUser setCurrentUser={setCurrentUser} userData={userData} userUpdate={userUpdate} />
         </Route>
         <Route path="/home">
-          <Home currentUser={currentUser} handleLogout={handleLogout} appBar={appBar} />
+          {/* <Home currentUser={currentUser} handleLogout={handleLogout} appBar={appBar} /> */}
+          <Home appBar={appBar} posts={posts} />
         </Route>
         <Route path="/profile">
           <UsersPosts currentUser={currentUser} handleLogout={handleLogout} appBar={appBar} />
         </Route>
         <Route exact path="/add-post">
-          <CreatePost currentUser={currentUser} appBar={appBar} />
+          <CreatePost currentUser={currentUser} appBar={appBar} setPosts={setPosts} posts={posts} />
         </Route>
         <Route path="/edit-user">
           <Edit appBar={appBar} currentUser={currentUser} userUpdate={userUpdate} handleLogout={handleLogout} />
